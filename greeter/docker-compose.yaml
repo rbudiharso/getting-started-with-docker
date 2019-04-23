@@ -1,0 +1,15 @@
+version: '3'
+services:
+  server:
+    build:
+      context: .
+      args:
+        node_env: development
+    image: webserver
+    ports:
+    - "3000:3000"
+    environment:
+      NODE_ENV: development
+    volumes:
+    - .:/opt/app
+    command: ["node_modules/.bin/nodemon", "index.js"]
